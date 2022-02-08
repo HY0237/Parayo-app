@@ -27,27 +27,33 @@ class ProductMainUI(private val viewModel: ProductMainViewModel) : AnkoComponent
     override fun createView(ui: AnkoContext<ProductMainActivity>) =
         ui.drawerLayout {
             drawerLayout = this
-            verticalLayout {
-                toolBar = toolbar {
-                    title = "Parayo"
-                    bottomPadding = dip(1)
-                    background = borderBottom(width = dip(1))
-                    menu.add("Search")
-                        .setIcon(R.drawable.ic_search)
-                        .setShowAsAction(SHOW_AS_ACTION_ALWAYS)
-                }.lparams(matchParent, wrapContent)
+
+            frameLayout {
+
+                verticalLayout {
+                    toolBar = toolbar {
+                        title = "Parayo"
+                        bottomPadding = dip(1)
+                        background = borderBottom(width = dip(1))
+                        menu.add("Search")
+                            .setIcon(R.drawable.ic_search)
+                            .setShowAsAction(SHOW_AS_ACTION_ALWAYS)
+                    }.lparams(matchParent, wrapContent)
+
+                }
+
+                floatingActionButton {
+                    imageResource = R.drawable.ic_add
+                    onClick { viewModel.openRegistrationActivity() }
+                }.lparams {
+                    bottomMargin = dip(20)
+                    marginEnd = dip(20)
+                    gravity = Gravity.END or Gravity.BOTTOM
+                }
+
             }
 
 
-
-            floatingActionButton {
-               imageResource = R.drawable.ic_add
-                onClick { viewModel.openRegistrationActivity() }
-            }.lparams {
-                bottomMargin = dip(20)
-                marginEnd = dip(20)
-                gravity = Gravity.END or Gravity.BOTTOM
-            }
 
         navigationView = navigationView {
             ProductMainNavHeader()

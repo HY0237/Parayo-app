@@ -14,7 +14,7 @@ class ProductRegistrationActivity : BaseActivity<ProductRegistrationViewModel>()
         ProductRegistrationUI(getViewModel()).setContentView(this)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "상품등록록"
+        supportActionBar?.title = "상품등록"
    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
