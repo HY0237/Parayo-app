@@ -12,5 +12,5 @@ data class Category(
         Category(3, "생활용품"),
         Category(4, "도서"),
         Category(5, "반려동물용품"),
-        Category(6, "식품품")
+        Category(6, "식품")
    )
