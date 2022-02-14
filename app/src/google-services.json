@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "195516023097",
+    "project_id": "parayo-db753",
+    "storage_bucket": "parayo-db753.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195516023097:android:33b25a646a6c013b92e8e8",
+        "android_client_info": {
+          "package_name": "com.example.parayo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195516023097-4meu0vvehbov6nctuv35hgqaqg2egc43.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI6lJB-FRjpwCG4TZ4Xz1CQ9uNsw4vqbQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195516023097-4meu0vvehbov6nctuv35hgqaqg2egc43.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

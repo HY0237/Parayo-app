@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Intent
 import androidx.paging.DataSource
 import com.example.parayo.api.response.ProductListItemResponse
+import com.example.parayo.product.detail.ProductDetailActivity
 //import com.example.parayo.product.detail.ProductDetailActivity
 import net.codephobia.ankomvvm.lifecycle.BaseViewModel
 import org.jetbrains.anko.error
@@ -27,10 +28,10 @@ class ProductListViewModel(
     }
 
     override fun onClickProduct(productId: Long?) {
-//        startActivity<ProductDetailActivity> {
-//            flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
-//            putExtra(ProductDetailActivity.PRODUCT_ID, productId)
-//        }
+        startActivity<ProductDetailActivity> {
+            flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+            putExtra(ProductDetailActivity.PRODUCT_ID, productId)
+        }
     }
 
 }

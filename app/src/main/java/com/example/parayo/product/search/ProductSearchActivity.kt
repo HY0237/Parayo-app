@@ -1,29 +1,40 @@
-package com.example.parayo.product.registration
+package com.example.parayo.product.search
 
 import android.os.Bundle
 import android.view.MenuItem
 import net.codephobia.ankomvvm.components.BaseActivity
 import org.jetbrains.anko.setContentView
 
-class ProductRegistrationActivity : BaseActivity<ProductRegistrationViewModel>() {
+class ProductSearchActivity : BaseActivity<ProductSearchViewModel>() {
 
-    override val viewModelType = ProductRegistrationViewModel::class
+    override val viewModelType = ProductSearchViewModel::class
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ProductRegistrationUI(getViewModel()).setContentView(this)
+
+        val keyword = intent.getStringExtra(KEYWORD)
+        val viewModel = getViewModel().apply {
+            this.keyword = keyword
+        }
+
+        ProductSearchUI(viewModel).setContentView(this)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "상품등록"
-   }
+        supportActionBar?.title = keyword
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         item.let {
-            when(item.itemId){
+            when(item.itemId) {
                 android.R.id.home -> onBackPressed()
                 else -> {}
             }
         }
         return true
     }
+
+    companion object {
+        const val KEYWORD = "keyword"
+    }
+
 }

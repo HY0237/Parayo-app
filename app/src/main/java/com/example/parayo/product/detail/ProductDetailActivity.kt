@@ -1,29 +1,40 @@
-package com.example.parayo.product.registration
+package com.example.parayo.product.detail
 
 import android.os.Bundle
 import android.view.MenuItem
 import net.codephobia.ankomvvm.components.BaseActivity
 import org.jetbrains.anko.setContentView
 
-class ProductRegistrationActivity : BaseActivity<ProductRegistrationViewModel>() {
+class ProductDetailActivity : BaseActivity<ProductDetailViewModel>() {
 
-    override val viewModelType = ProductRegistrationViewModel::class
+    override val viewModelType = ProductDetailViewModel::class
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ProductRegistrationUI(getViewModel()).setContentView(this)
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "상품등록"
-   }
+        supportActionBar?.title = ""
+
+        val viewModel = getViewModel()
+        val productId = intent.getLongExtra(PRODUCT_ID, -1)
+
+        viewModel.loadDetail(productId)
+        ProductDetailUI(getViewModel()).setContentView(this)
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         item.let {
-            when(item.itemId){
+            when(item.itemId) {
                 android.R.id.home -> onBackPressed()
                 else -> {}
             }
         }
         return true
     }
+
+
+
+    companion object {
+        val PRODUCT_ID = "productId"
+    }
+
 }

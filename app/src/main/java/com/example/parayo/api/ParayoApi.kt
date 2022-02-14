@@ -3,10 +3,7 @@ package com.example.parayo.api
 import com.example.parayo.api.request.ProductRegistrationRequest
 import com.example.parayo.api.request.SigninRequest
 import com.example.parayo.api.request.SignupRequest
-import com.example.parayo.api.response.ApiResponse
-import com.example.parayo.api.response.ProductImageUploadResponse
-import com.example.parayo.api.response.ProductListItemResponse
-import com.example.parayo.api.response.SigninResponse
+import com.example.parayo.api.response.*
 import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.*
@@ -37,6 +34,13 @@ interface ParayoApi {
         @Query("direction") direction: String, // prev,next
         @Query("keyword") keyword: String? = null
     ): ApiResponse<List<ProductListItemResponse>>
+
+
+    @GET("/api/v1/products/{id}")
+    suspend fun getProduct(@Path("id" ) id: Long): ApiResponse<ProductResponse>
+
+    @PUT("/api/v1/users/fcm-token")
+    suspend fun updateFcmToken(fcmToken: String): ApiResponse<Response<Void>>
 
 
     companion object {
